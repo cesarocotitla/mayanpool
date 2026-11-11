@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/* ── Sistema visual Mayan Pool (paleta extraída del logotipo) ── */
+@theme {
+  --color-abyss: #0F3750;       /* Azul profundo · logotipo */
+  --color-night: #0A2233;       /* Noche · fondos oscuros */
+  --color-teal: #00BAB5;        /* Turquesa maya · logotipo */
+  --color-teal-text: #00807C;   /* Turquesa AA sobre blanco */
+  --color-aqua: #7FE3DF;        /* Turquesa claro sobre oscuro */
+  --color-mist: #F2F5F6;        /* Bruma · superficies */
+  --color-stone: #4A6372;       /* Piedra · texto secundario */
+  --color-slate: #5D7686;
+  --color-line: #E1E8EB;
+  --color-field: #D5DEE2;
+  --color-whatsapp: #25D366;
+
+  --font-display: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-water: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white font-sans text-abyss antialiased;
+  }
+
+  /* Compensa el header fijo al navegar con anclas */
+  section[id] {
+    scroll-margin-top: 72px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-teal);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--color-aqua);
+    color: var(--color-night);
+  }
+}
+
+@utility container-mp {
+  @apply mx-auto w-full max-w-[1240px] px-5 sm:px-10;
+}
+
+@utility eyebrow {
+  @apply font-display text-xs font-semibold uppercase leading-none tracking-[0.28em];
+}
+
+@utility heading-2 {
+  @apply font-display text-[34px] font-semibold leading-[1.08] tracking-[-0.025em] sm:text-[44px] lg:text-[52px];
+}
+
+@utility btn {
+  @apply inline-flex min-h-[52px] cursor-pointer items-center justify-center gap-2.5 rounded-full px-7 font-display text-sm font-semibold leading-none tracking-[0.06em] no-underline transition-[background-color,color,transform,box-shadow] duration-300 ease-water;
+}
+
+@utility btn-primary {
+  @apply btn bg-teal text-night hover:bg-aqua;
+}
+
+@utility btn-ghost {
+  @apply btn border border-white/40 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20;
+}
+
+@utility field {
+  @apply h-[52px] w-full rounded border border-field bg-white px-4 font-sans text-[15px] font-normal text-abyss transition-colors placeholder:text-slate focus:border-teal focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-teal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

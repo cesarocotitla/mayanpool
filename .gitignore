@@ -1,0 +1,28 @@
+# dependencias
+/node_modules
+
+# Next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# producción
+/build
+
+# varios
+.DS_Store
+*.pem
+npm-debug.log*
+
+# variables de entorno locales (nunca subir)
+.env
+.env*.local
+
+# Vercel
+.vercel
+
+# videos: se sirven desde S3 (no versionar archivos pesados)
+/public/videos/*.mp4
+/public/videos/*.webm
+/public/videos/*.mov
