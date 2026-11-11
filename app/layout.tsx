@@ -4,6 +4,8 @@ import { siteConfig } from "@/lib/site-config";
 import { buildStructuredData } from "@/lib/structured-data";
 import "./globals.css";
 import { absoluteAsset } from "@/lib/assets";
+import { GoogleTagManagerNoScript, GoogleTagManagerScript } from "@/components/GoogleTagManager";
+import WhatsAppClickTracker from "@/components/WhatsAppClickTracker";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -76,6 +78,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="es-MX" className={`${montserrat.variable} ${inter.variable}`}>
       <body>
+        <GoogleTagManagerNoScript />
         <a
           href="#contenido"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-5 focus:py-3 focus:font-display focus:text-sm focus:font-semibold focus:text-abyss focus:shadow-lg"
@@ -83,6 +86,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           Saltar al contenido
         </a>
         {children}
+        <WhatsAppClickTracker />
+        <GoogleTagManagerScript />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       </body>
     </html>

@@ -4,6 +4,7 @@ import { useId, useState } from "react";
 import { Send, CircleCheck, ChevronDown } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { hasWhatsApp, mailtoLink, whatsappLink } from "@/lib/contact";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 type Values = { nombre: string; telefono: string; tipo: string; mensaje: string };
 type Errors = Partial<Record<keyof Values, string>>;
@@ -79,6 +80,7 @@ export default function ContactForm() {
     const text = buildMessage(v);
     const wa = whatsappLink(text);
     if (wa) {
+      trackWhatsAppClick(); // abre WhatsApp sin enlace <a>, así que se registra aquí
       window.open(wa, "_blank", "noopener,noreferrer");
       return true;
     }
