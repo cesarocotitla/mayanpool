@@ -46,10 +46,10 @@ export const siteConfig = {
     ogImage: "/images/og-mayan-pool.jpg",
   },
 
-  /** Contacto — PENDIENTE: definir en variables de entorno */
+  /** Contacto. Las variables de entorno, si existen, tienen prioridad. */
   contact: {
-    /** Solo dígitos con código de país (ej. 52 + 10 dígitos). Vacío = no configurado. */
-    whatsappNumber: env(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER).replace(/\D/g, ""),
+    /** WhatsApp: 52 (México) + 10 dígitos. Número: 777 789 8908. */
+    whatsappNumber: (env(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER) || "527777898908").replace(/\D/g, ""),
     whatsappMessage:
       "Hola, visité mayanpool.com y me gustaría recibir información sobre un proyecto",
     email: env(process.env.NEXT_PUBLIC_CONTACT_EMAIL),

@@ -30,7 +30,6 @@ Ningún dato comercial se ha inventado. Mientras no se configuren, el sitio func
 
 | Dato | Dónde se configura | Mientras falte |
 |---|---|---|
-| Número de WhatsApp | `NEXT_PUBLIC_WHATSAPP_NUMBER` | Los botones de WhatsApp llevan al formulario y el botón «Escríbenos por WhatsApp» no aparece. |
 | Correo de contacto | `NEXT_PUBLIC_CONTACT_EMAIL` | No se muestra. |
 | Facebook / Instagram | `NEXT_PUBLIC_FACEBOOK_URL`, `NEXT_PUBLIC_INSTAGRAM_URL` | Los íconos no se muestran. |
 | Fotos de proyectos reales | `lib/projects.ts` + bucket `images/projects/` | Se muestran fotografías del diseño, solo con su categoría. |
@@ -154,7 +153,7 @@ En Vercel → *Project* → **Settings → Environment Variables**, agrega estas
 |---|---|---|
 | `NEXT_PUBLIC_SITE_URL` | `https://mayanpool.com` | Sí |
 | `NEXT_PUBLIC_ASSETS_URL` | `https://mayanpool.s3.amazonaws.com` | Sí (para usar S3) |
-| `NEXT_PUBLIC_WHATSAPP_NUMBER` | `52` + 10 dígitos, solo números | Recomendada |
+| `NEXT_PUBLIC_WHATSAPP_NUMBER` | `52` + 10 dígitos, solo números | Opcional (por defecto 527777898908) |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | `contacto@…` | Opcional |
 | `NEXT_PUBLIC_FACEBOOK_URL` | URL completa de la página | Opcional |
 | `NEXT_PUBLIC_INSTAGRAM_URL` | URL completa del perfil | Opcional |
