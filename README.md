@@ -31,7 +31,7 @@ Ningún dato comercial se ha inventado. Mientras no se configuren, el sitio func
 | Dato | Dónde se configura | Mientras falte |
 |---|---|---|
 | Correo de contacto | `NEXT_PUBLIC_CONTACT_EMAIL` | No se muestra. |
-| Facebook / Instagram | `NEXT_PUBLIC_FACEBOOK_URL`, `NEXT_PUBLIC_INSTAGRAM_URL` | Los íconos no se muestran. |
+| Instagram / Perfil de Google | `lib/site-config.ts` → `social` (o `NEXT_PUBLIC_INSTAGRAM_URL`, `NEXT_PUBLIC_GOOGLE_BUSINESS_URL`) | Los íconos no se muestran. Facebook y TikTok ya están configurados. |
 | Fotos de proyectos reales | `lib/projects.ts` + bucket `images/projects/` | Se muestran fotografías del diseño, solo con su categoría. |
 
 ### Recursos en S3 (imágenes y video)
@@ -155,8 +155,10 @@ En Vercel → *Project* → **Settings → Environment Variables**, agrega estas
 | `NEXT_PUBLIC_ASSETS_URL` | `https://mayanpool.s3.amazonaws.com` | Sí (para usar S3) |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | `52` + 10 dígitos, solo números | Opcional (por defecto 527777898908) |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | `contacto@…` | Opcional |
-| `NEXT_PUBLIC_FACEBOOK_URL` | URL completa de la página | Opcional |
+| `NEXT_PUBLIC_FACEBOOK_URL` | URL completa de la página | Opcional (por defecto el de site-config) |
 | `NEXT_PUBLIC_INSTAGRAM_URL` | URL completa del perfil | Opcional |
+| `NEXT_PUBLIC_TIKTOK_URL` | URL completa del perfil | Opcional (por defecto el de site-config) |
+| `NEXT_PUBLIC_GOOGLE_BUSINESS_URL` | Enlace de Google Maps del Perfil de Empresa | Opcional |
 | `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Código de Search Console | Opcional |
 
 Estas variables se aplican **al compilar**. Si las cambias, ve a **Deployments → ⋯ → Redeploy**.

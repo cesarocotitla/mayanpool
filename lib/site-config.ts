@@ -55,10 +55,16 @@ export const siteConfig = {
     email: env(process.env.NEXT_PUBLIC_CONTACT_EMAIL),
   },
 
-  /** Redes sociales — vacías = no se muestran */
+  /**
+   * Redes sociales y perfil de Google — vacías = no se muestran.
+   * Pega la URL completa entre comillas (o defínela como variable de entorno).
+   */
   social: {
-    facebook: env(process.env.NEXT_PUBLIC_FACEBOOK_URL),
-    instagram: env(process.env.NEXT_PUBLIC_INSTAGRAM_URL),
+    facebook: env(process.env.NEXT_PUBLIC_FACEBOOK_URL) || "https://www.facebook.com/MayanPoolCuernavaca",
+    instagram: env(process.env.NEXT_PUBLIC_INSTAGRAM_URL) || "",
+    tiktok: env(process.env.NEXT_PUBLIC_TIKTOK_URL) || "https://www.tiktok.com/@20.24.19.82",
+    /** Perfil de Empresa de Google (Google Maps / reseñas). Ej. https://maps.app.goo.gl/… */
+    google: env(process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_URL) || "",
   },
 
   /**

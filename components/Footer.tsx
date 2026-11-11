@@ -1,16 +1,12 @@
 import Image from "next/image";
 import { navLinks, siteConfig } from "@/lib/site-config";
-import { externalProps, whatsappLink } from "@/lib/contact";
-import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "./icons";
+import { externalProps } from "@/lib/contact";
+import { socialLinks } from "@/lib/social-links";
+import { socialIcons } from "./icons";
 import { asset } from "@/lib/assets";
 
 export default function Footer() {
-  const wa = whatsappLink();
-  const socials = [
-    siteConfig.social.facebook && { href: siteConfig.social.facebook, label: "Facebook", Icon: FacebookIcon },
-    siteConfig.social.instagram && { href: siteConfig.social.instagram, label: "Instagram", Icon: InstagramIcon },
-    wa && { href: wa, label: "WhatsApp", Icon: WhatsAppIcon },
-  ].filter(Boolean) as { href: string; label: string; Icon: typeof FacebookIcon }[];
+  const socials = socialLinks().map((s) => ({ ...s, Icon: socialIcons[s.id] }));
 
   return (
     <footer className="bg-white pb-28 pt-[72px] sm:pb-9">
@@ -46,7 +42,7 @@ export default function Footer() {
                   <a
                     href={href}
                     {...externalProps(href)}
-                    aria-label={`${siteConfig.name} en ${label}`}
+                    aria-label={label === "Google" ? `${siteConfig.name} en Google Maps` : `${siteConfig.name} en ${label}`}
                     className="flex size-11 items-center justify-center rounded-full border border-field text-abyss transition-colors hover:border-teal hover:text-teal-text"
                   >
                     <Icon size={18} />

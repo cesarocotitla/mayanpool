@@ -40,6 +40,31 @@ export function InstagramIcon({ size = 18, ...props }: IconProps) {
   );
 }
 
+export function TikTokIcon({ size = 18, ...props }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...base(size, props)}>
+      <path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.6 2.6 0 0 1-2.6-2.6 2.6 2.6 0 0 1 3.37-2.48V9.66a5.73 5.73 0 0 0-.77-.05 5.69 5.69 0 0 0-5.69 5.69A5.69 5.69 0 0 0 9.86 21a5.69 5.69 0 0 0 5.69-5.69V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.28 4.28 0 0 1-3.25-1.48Z" />
+    </svg>
+  );
+}
+
+export function GoogleIcon({ size = 18, ...props }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...base(size, props)}>
+      <path d="M21.35 11.1H12v2.98h5.35c-.23 1.4-1.66 4.1-5.35 4.1a5.94 5.94 0 0 1 0-11.88 5.3 5.3 0 0 1 3.76 1.46l2.56-2.47A9 9 0 0 0 12 3a9 9 0 1 0 0 18c5.2 0 8.64-3.65 8.64-8.8 0-.6-.07-1.04-.15-1.5Z" />
+    </svg>
+  );
+}
+
+/** Ícono por red social (ids de lib/social-links.ts). */
+export const socialIcons = {
+  facebook: FacebookIcon,
+  instagram: InstagramIcon,
+  tiktok: TikTokIcon,
+  google: GoogleIcon,
+  whatsapp: WhatsAppIcon,
+};
+
 const stroke = { fill: "none", stroke: "currentColor", strokeWidth: 1.5, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
 
 export const capabilityIcons = {

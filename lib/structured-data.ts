@@ -9,7 +9,7 @@ import { absoluteAsset } from "./assets";
  */
 export function buildStructuredData() {
   const { url, name, location, contact, social, services, seo } = siteConfig;
-  const sameAs = [social.facebook, social.instagram].filter(Boolean);
+  const sameAs = [social.facebook, social.instagram, social.tiktok, social.google].filter(Boolean);
 
   const business: Record<string, unknown> = {
     "@type": "HomeAndConstructionBusiness",
@@ -49,6 +49,7 @@ export function buildStructuredData() {
   if (hasWhatsApp) business.telephone = `+${contact.whatsappNumber}`;
   if (hasEmail) business.email = contact.email;
   if (sameAs.length) business.sameAs = sameAs;
+  if (social.google) business.hasMap = social.google;
 
   return {
     "@context": "https://schema.org",

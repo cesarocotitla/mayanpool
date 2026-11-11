@@ -2,12 +2,14 @@ import { MapPin, Mail } from "lucide-react";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 import ContactForm from "./ContactForm";
-import { WhatsAppIcon } from "./icons";
+import { socialIcons, WhatsAppIcon } from "./icons";
+import { socialLinks } from "@/lib/social-links";
 import { siteConfig } from "@/lib/site-config";
 import { externalProps, hasEmail, whatsappLink } from "@/lib/contact";
 
 export default function Contact() {
   const wa = whatsappLink();
+  const socials = socialLinks({ includeWhatsApp: false });
 
   return (
     <section
@@ -65,6 +67,29 @@ export default function Contact() {
                 </div>
               )}
             </dl>
+
+            {socials.length > 0 && (
+              <div className="mt-8">
+                <p className="eyebrow mb-4 text-white/60">Síguenos</p>
+                <ul className="flex flex-wrap gap-2.5">
+                  {socials.map((s) => {
+                    const Icon = socialIcons[s.id];
+                    return (
+                      <li key={s.id}>
+                        <a
+                          href={s.href}
+                          {...externalProps(s.href)}
+                          className="inline-flex min-h-11 items-center gap-2.5 rounded-full border border-white/25 px-4 font-display text-[13px] font-semibold tracking-[0.04em] text-white transition-colors hover:border-aqua hover:bg-white/10"
+                        >
+                          <Icon size={16} />
+                          {s.id === "google" ? "Google Maps" : s.label}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
           </Reveal>
 
           <Reveal className="lg:col-span-7" delay={0.1}>
